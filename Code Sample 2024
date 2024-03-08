@@ -8,7 +8,12 @@ int main()
     enable_servo(0);
     enable_servo(3);
     //arm = 0
+    //drop = 900
+    //lift = 1035
+
     //claw = 3
+    //open = 940
+    //close = 1640
     
     create3_drive_straight(0.028,.46);    //(distance,speed)
   
