@@ -1,0 +1,68 @@
+Code Sample from Draft 1
+
+#include <kipr/wombat.h>
+
+int main()
+{
+    create3_connect();
+    enable_servo(0);
+    enable_servo(3);
+    //arm = 0
+    //claw = 3
+    
+    create3_drive_straight(0.028,.46);    //(distance,speed)
+  
+    create3_rotate_degrees(-45,75);  // line up to leave start box 
+    create3_wait();
+    
+    create3_drive_straight(0.47,.46);  //towards first pom stalk
+    create3_wait();
+    
+    create3_rotate_degrees(90,75);  //turn to face pom stack
+    create3_wait();
+    
+    create3_drive_straight(-0.02,.46);  //square up
+    create3_wait();
+    
+    set_servo_position(3,940);  //open claw
+    msleep(100);
+    
+    create3_wait();
+    
+        
+    set_servo_position(0,900);  //drop claw over top pom
+    msleep(500);
+    
+    create3_wait();
+    
+    set_servo_position(3,1630);  //close claw
+    msleep(500);
+    
+    set_servo_position(0,1035);  //lift pom off of pile
+    msleep(500);
+    
+    create3_drive_straight(0.22,.46);  //push bottom poms into area 2
+    create3_wait();
+    
+    create3_drive_straight(-0.16,.46);  //back up to realign 
+    create3_wait();
+    
+   set_servo_position(3,940);  //open claw to drop pom
+   msleep(200);
+    
+    create3_rotate_degrees(90,75);  //turn toward start box
+    create3_wait();
+    
+    create3_drive_straight(-0.16,.46);  //back up to drop pom into area 3
+    create3_wait();
+    
+     set_servo_position(3,940);  //open claw to drop pom
+   msleep(200);
+    
+    create3_rotate_degrees(-180,75);  //turn back towards second pom stack
+    create3_wait();
+ 
+    
+    disable_servos();
+    return 0;
+}
